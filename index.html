@@ -7,7 +7,7 @@
 <meta name="description" content="جزوه فشرده شب امتحان هندسه دوازدهم رشته ریاضی فیزیک: ماتریس، مقاطع مخروطی، بردارها + فرمول‌نامه، مثال حل‌شده و تله‌های امتحانی">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lalezar&family=Vazirmatn:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#f6f7fb; --card:#ffffff; --ink:#1e2433; --muted:#667085;
@@ -205,6 +205,69 @@ footer .heart{color:#e11d48}
   .hero-card{box-shadow:none}
 }
 @media(max-width:600px){ body{font-size:15px} section.card{padding:1.2rem .9rem} }
+
+/* ================= v3 GRAPHICS ================= */
+html{background:var(--bg)}
+::selection{background:var(--brand); color:#fff}
+body{background-image:radial-gradient(color-mix(in srgb, var(--brand) 13%, transparent) 1.3px, transparent 1.3px); background-size:28px 28px}
+/* progress glow */
+#progress{box-shadow:0 0 12px rgba(124,58,237,.8)}
+/* nav glass + active link */
+nav{background:color-mix(in srgb, var(--card) 82%, transparent); box-shadow:0 4px 20px rgba(30,36,51,.08)}
+.nav-links a{transition:all .25s}
+.nav-links a.active{background:linear-gradient(135deg,var(--brand),var(--brand2)); color:#fff; border-color:transparent; box-shadow:0 4px 12px rgba(79,70,229,.45)}
+.nav-xp{font-size:.78rem; font-weight:800; background:linear-gradient(135deg,#f59e0b,#f97316); color:#fff; border-radius:999px; padding:.25rem .8rem; box-shadow:0 3px 10px rgba(245,158,11,.45); white-space:nowrap}
+/* display font */
+.logo{font-family:'Lalezar','Vazirmatn',sans-serif; font-size:1.4rem; font-weight:400}
+.hero-card h1{font-family:'Lalezar','Vazirmatn',sans-serif; font-weight:400; font-size:clamp(2.1rem,6.5vw,3.1rem); line-height:1.7; text-shadow:0 4px 24px rgba(0,0,0,.35); margin-bottom:.5rem}
+h2.sec{font-family:'Lalezar','Vazirmatn',sans-serif; font-weight:400; font-size:1.65rem; line-height:1.9}
+h2.sec::after{content:''; flex:1; height:3px; min-width:30px; border-radius:99px; background:linear-gradient(to left, var(--brand), var(--brand2), transparent); margin-right:.4rem; box-shadow:0 0 8px color-mix(in srgb, var(--brand) 50%, transparent)}
+#ch1 h3,#ch2 h3,#ch3 h3{border-right:4px solid var(--accent); padding-right:.6rem}
+.countdown b{font-family:'Lalezar','Vazirmatn',sans-serif; font-weight:400; font-size:2rem}
+.stat b{font-family:'Lalezar','Vazirmatn',sans-serif; font-weight:400; font-size:1.7rem}
+#pomo-time{font-family:'Lalezar','Vazirmatn',sans-serif}
+/* hero aurora */
+.hero-card{background:linear-gradient(135deg,#312e81,#4f46e5 35%,#7c3aed 65%,#c026d3); background-size:220% 220%; animation:aurora 12s ease-in-out infinite alternate; border:1px solid rgba(255,255,255,.3); box-shadow:0 20px 60px rgba(79,70,229,.4)}
+@keyframes aurora{from{background-position:0% 0%} to{background-position:100% 100%}}
+.countdown,.xp-wrap,.stat{backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px)}
+.countdown{box-shadow:0 8px 30px rgba(0,0,0,.3); border:1px solid rgba(255,255,255,.25)}
+/* button shine */
+.hero-cta .btn,.solve-btn{position:relative; overflow:hidden}
+.hero-cta .btn::after,.solve-btn::after{content:''; position:absolute; top:-10%; bottom:-10%; width:56px; left:0; background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent); transform:translateX(-100px) skewX(-20deg); animation:shine 3.8s ease-in-out infinite; pointer-events:none}
+@keyframes shine{0%{transform:translateX(-100px) skewX(-20deg)} 55%{transform:translateX(340px) skewX(-20deg)} 100%{transform:translateX(340px) skewX(-20deg)}}
+/* cards with gradient top bar + lift */
+section.card{position:relative; overflow:hidden; transition:transform .3s ease, box-shadow .3s ease}
+section.card::before{content:''; position:absolute; top:0; right:0; left:0; height:5px; background:linear-gradient(90deg,var(--brand),var(--brand2),var(--accent)); z-index:2}
+section.card:hover{transform:translateY(-2px); box-shadow:0 14px 36px rgba(30,36,51,.14)}
+body.dark section.card:hover{box-shadow:0 14px 36px rgba(0,0,0,.55)}
+/* formula gradient border + glow */
+.formula{border:2px solid transparent; background:linear-gradient(var(--blue-bg),var(--blue-bg)) padding-box, linear-gradient(135deg,var(--brand),var(--brand2),var(--accent)) border-box; box-shadow:0 4px 16px rgba(79,70,229,.14)}
+body.dark .formula{box-shadow:0 0 20px rgba(124,58,237,.28)}
+.tip,.warn,.note,.example{box-shadow:0 3px 12px rgba(30,36,51,.07)}
+/* tables */
+th{background:linear-gradient(135deg,var(--brand),var(--brand2))}
+tbody tr{transition:background .2s}
+tbody tr:hover td{background:color-mix(in srgb, var(--brand) 9%, var(--card))}
+/* flashcard animated gradient */
+.fc-front{background:linear-gradient(135deg,var(--brand),var(--brand2),#a855f7); background-size:220% 220%; animation:aurora 8s ease-in-out infinite alternate}
+/* game pop/shake */
+.opt.correct{animation:pop .35s}
+.opt.wrong{animation:shake .35s}
+@keyframes pop{0%{transform:scale(1)} 40%{transform:scale(1.05)} 100%{transform:scale(1)}}
+@keyframes shake{0%,100%{transform:translateX(0)} 25%{transform:translateX(-6px)} 75%{transform:translateX(6px)}}
+/* formula ticker */
+.ticker{max-width:1000px; margin:1rem auto 0; padding:0 1rem}
+.ticker-inner{background:linear-gradient(90deg,#1e1b4b,#312e81,#1e1b4b); color:#fff; overflow:hidden; white-space:nowrap; border-radius:14px; border:1px solid rgba(255,255,255,.14); box-shadow:0 8px 24px rgba(30,27,75,.35)}
+.ticker-track{display:flex; width:max-content; animation:tickmove 30s linear infinite}
+.ticker-seq{display:flex; gap:2.6rem; padding:.55rem 0 .55rem 2.6rem; font-weight:700; font-size:.9rem}
+.ticker-seq i{color:#fbbf24; font-style:normal}
+@keyframes tickmove{from{transform:translateX(0)} to{transform:translateX(50%)}}
+/* checklist progress */
+.check-prog{height:12px; background:var(--line); border-radius:99px; overflow:hidden; margin:.4rem 0 .2rem}
+.check-fill{height:100%; width:0; border-radius:99px; background:linear-gradient(90deg,var(--green),#34d399); box-shadow:0 0 10px rgba(5,150,105,.6); transition:width .5s}
+/* footer */
+footer{background:linear-gradient(180deg,transparent,color-mix(in srgb, var(--brand) 7%, transparent))}
+@media print{ .ticker,#game,#pomo{display:none!important} }
 </style>
 </head>
 <body>
@@ -227,6 +290,7 @@ footer .heart{color:#e11d48}
       <a href="#quiz">✍️ خودآزمایی</a>
       <a href="#checklist">✅ چک‌لیست</a>
     </div>
+    <span class="nav-xp" id="nav-xp" title="سطح و امتیازت">🏆۱ • ۰</span>
     <button class="icon-btn" id="themeBtn" title="حالت شب/روز">🌙 شب</button>
     <button class="icon-btn no-print" onclick="window.print()" title="چاپ جزوه">🖨 چاپ</button>
   </div>
@@ -266,6 +330,11 @@ footer .heart{color:#e11d48}
     </div>
   </div>
 </header>
+
+<div class="ticker" aria-hidden="true"><div class="ticker-inner"><div class="ticker-track">
+<div class="ticker-seq"><span>c² = a² − b²</span><i>✦</i><span>xx₀ + yy₀ = r²</span><i>✦</i><span>x = Dx/D</span><i>✦</i><span>det(kA) = kⁿdetA</span><i>✦</i><span>y² = 4px</span><i>✦</i><span>cosθ = (a·b)/(|a||b|)</span><i>✦</i><span>S = ½|a×b|</span><i>✦</i><span>(x−h)² + (y−k)² = r²</span><i>✦</i></div>
+<div class="ticker-seq"><span>c² = a² − b²</span><i>✦</i><span>xx₀ + yy₀ = r²</span><i>✦</i><span>x = Dx/D</span><i>✦</i><span>det(kA) = kⁿdetA</span><i>✦</i><span>y² = 4px</span><i>✦</i><span>cosθ = (a·b)/(|a||b|)</span><i>✦</i><span>S = ½|a×b|</span><i>✦</i><span>(x−h)² + (y−k)² = r²</span><i>✦</i></div>
+</div></div></div>
 
 <main>
 
@@ -766,6 +835,8 @@ footer .heart{color:#e11d48}
 <section class="card" id="checklist">
   <h2 class="sec">✅ چک‌لیست شب امتحان</h2>
   <p class="sec-desc">تیک بزن و با خیال راحت بخواب 😴 (تیک‌ها ذخیره می‌شوند)</p>
+  <div class="check-prog"><div class="check-fill" id="check-fill"></div></div>
+  <p class="fc-prog" id="check-txt"></p>
   <label class="check"><input type="checkbox" data-k="c1"> <span>۱ مثال <b>ضرب ماتریس</b> و ۱ مثال <b>ساروس</b> با دست حل کردم</span></label>
   <label class="check"><input type="checkbox" data-k="c2"> <span>۱ دستگاه با <b>کرامر</b> کامل حل کردم (D، Dx، Dy)</span></label>
   <label class="check"><input type="checkbox" data-k="c3"> <span>فرمول <b>وارون ۲×۲</b> را از حفظ بلدم</span></label>
@@ -1244,6 +1315,34 @@ function beep(){
   }catch(e){}
 }
 pomoRender();
+
+/* ================= v3: scrollspy + nav XP + checklist progress ================= */
+function renderXP(){
+  document.getElementById('level-badge').textContent = '🏆 سطح ' + faNum(level());
+  document.getElementById('xp-text').textContent = faNum(xp) + ' XP';
+  document.getElementById('xp-fill').style.width = (xp % 100) + '%';
+  const nx = document.getElementById('nav-xp');
+  if(nx) nx.textContent = '🏆' + faNum(level()) + ' • ' + faNum(xp);
+}
+renderXP();
+
+const spyLinks = [...document.querySelectorAll('.nav-links a')];
+const spySecs = spyLinks.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+window.addEventListener('scroll', () => {
+  let cur = '';
+  spySecs.forEach(s => { if(scrollY + 160 >= s.offsetTop) cur = '#' + s.id; });
+  spyLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === cur));
+}, {passive:true});
+
+function checkProg(){
+  const all = document.querySelectorAll('.check input');
+  const done = document.querySelectorAll('.check input:checked').length;
+  const pct = Math.round(done / all.length * 100);
+  document.getElementById('check-fill').style.width = pct + '%';
+  document.getElementById('check-txt').textContent = 'پیشرفت: ' + faNum(pct) + '٪ (' + faNum(done) + ' از ' + faNum(all.length) + ')';
+}
+document.querySelectorAll('.check input').forEach(cb => cb.addEventListener('change', checkProg));
+checkProg();
 </script>
 </body>
 </html>
