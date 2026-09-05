@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>هندسه دوازدهم | جزوه شب امتحان شهریور 📐</title>
+<meta name="description" content="جزوه فشرده شب امتحان هندسه دوازدهم رشته ریاضی فیزیک: ماتریس، مقاطع مخروطی، بردارها + فرمول‌نامه، مثال حل‌شده و تله‌های امتحانی">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f6f7fb; --card:#ffffff; --ink:#1e2433; --muted:#667085;
+  --brand:#4f46e5; --brand2:#7c3aed; --accent:#f59e0b;
+  --green:#059669; --green-bg:#ecfdf5; --red:#dc2626; --red-bg:#fef2f2;
+  --blue-bg:#eff6ff; --amber-bg:#fffbeb; --violet-bg:#f5f3ff;
+  --line:#e6e9f2; --shadow:0 6px 24px rgba(30,36,51,.08);
+  --radius:16px;
+}
+*{box-sizing:border-box; margin:0; padding:0}
+html{scroll-behavior:smooth; scroll-padding-top:90px}
+body{font-family:'Vazirmatn',Tahoma,sans-serif; background:var(--bg); color:var(--ink); line-height:2; font-size:16px}
+body.dark{--bg:#0f1422; --card:#1a2136; --ink:#eef1f8; --muted:#9aa3b8; --line:#2b3350; --shadow:0 6px 24px rgba(0,0,0,.4);
+  --blue-bg:#16233f; --green-bg:#122b24; --red-bg:#33191b; --amber-bg:#2e2514; --violet-bg:#241d3d}
+/* progress */
+#progress{position:fixed; top:0; right:0; height:4px; width:0; background:linear-gradient(90deg,var(--brand),var(--brand2),var(--accent)); z-index:1000}
+/* nav */
+nav{position:sticky; top:0; z-index:900; background:color-mix(in srgb, var(--card) 88%, transparent); backdrop-filter:blur(12px); border-bottom:1px solid var(--line)}
+.nav-inner{max-width:1000px; margin:auto; padding:.6rem 1rem; display:flex; align-items:center; gap:.5rem; flex-wrap:wrap}
+.logo{font-weight:900; font-size:1.05rem; color:var(--brand); margin-left:auto; white-space:nowrap}
+.nav-links{display:flex; gap:.25rem; flex-wrap:wrap}
+.nav-links a{text-decoration:none; color:var(--ink); font-size:.85rem; font-weight:500; padding:.3rem .7rem; border-radius:999px; border:1px solid transparent}
+.nav-links a:hover{border-color:var(--line); background:var(--bg)}
+.icon-btn{cursor:pointer; border:1px solid var(--line); background:var(--card); color:var(--ink); border-radius:999px; padding:.3rem .8rem; font-family:inherit; font-size:.85rem; font-weight:500}
+.icon-btn:hover{border-color:var(--brand)}
+/* hero */
+header.hero{max-width:1000px; margin:1.2rem auto 0; padding:0 1rem}
+.hero-card{background:linear-gradient(135deg,#4f46e5,#7c3aed 60%,#a855f7); color:#fff; border-radius:24px; padding:2.2rem 1.6rem; text-align:center; box-shadow:var(--shadow); position:relative; overflow:hidden}
+.hero-card::before{content:'📐'; position:absolute; font-size:7rem; opacity:.15; left:1rem; top:.2rem; transform:rotate(-12deg)}
+.hero-card::after{content:'📏'; position:absolute; font-size:5rem; opacity:.12; right:1.2rem; bottom:.2rem; transform:rotate(14deg)}
+.hero-card h1{font-size:clamp(1.5rem,5vw,2.4rem); font-weight:900; margin-bottom:.3rem}
+.hero-card p.sub{opacity:.92; font-size:1.02rem; max-width:640px; margin:.4rem auto 1rem}
+.badges{display:flex; gap:.5rem; justify-content:center; flex-wrap:wrap; margin-bottom:1rem}
+.badge{background:rgba(255,255,255,.18); border:1px solid rgba(255,255,255,.35); padding:.2rem .9rem; border-radius:999px; font-size:.85rem; font-weight:500}
+.countdown{display:inline-flex; gap:1rem; background:rgba(0,0,0,.25); border-radius:14px; padding:.7rem 1.4rem; margin-top:.4rem}
+.countdown div{text-align:center}
+.countdown b{font-size:1.6rem; display:block; line-height:1.2; font-variant-numeric:tabular-nums}
+.countdown span{font-size:.75rem; opacity:.85}
+.hero-cta{margin-top:1.1rem; display:flex; gap:.6rem; justify-content:center; flex-wrap:wrap}
+.btn{display:inline-block; text-decoration:none; font-weight:700; border-radius:12px; padding:.6rem 1.4rem; font-size:.95rem; cursor:pointer; border:none; font-family:inherit}
+.btn-light{background:#fff; color:#4f46e5}
+.btn-ghost{background:rgba(255,255,255,.15); color:#fff; border:1px solid rgba(255,255,255,.4)}
+/* layout */
+main{max-width:1000px; margin:auto; padding:1rem 1rem 3rem}
+section.card{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); padding:1.6rem 1.4rem; margin:1.2rem 0}
+h2.sec{font-size:1.35rem; font-weight:900; margin-bottom:.2rem; display:flex; align-items:center; gap:.5rem}
+.sec-desc{color:var(--muted); font-size:.92rem; margin-bottom:1rem; border-bottom:2px dashed var(--line); padding-bottom:.8rem}
+h3{font-size:1.08rem; font-weight:800; margin:1.3rem 0 .5rem; color:var(--brand)}
+body.dark h3{color:#a5b4fc}
+h4{font-size:1rem; font-weight:700; margin:1rem 0 .3rem}
+p{margin:.4rem 0}
+ul,ol{margin:.4rem 1.2rem .4rem 0; padding:0}
+li{margin:.3rem 0}
+li::marker{color:var(--brand); font-weight:800}
+/* boxes */
+.formula{background:var(--blue-bg); border:2px solid #bfdbfe; border-radius:12px; padding:.8rem 1rem; margin:.7rem 0; text-align:center; font-weight:700; font-size:1.02rem; overflow-x:auto}
+body.dark .formula{border-color:#31456e}
+.formula small{display:block; font-weight:400; color:var(--muted); font-size:.85rem}
+.tip{background:var(--green-bg); border-right:5px solid var(--green); border-radius:10px; padding:.7rem 1rem; margin:.7rem 0; font-size:.95rem}
+.tip b.t{color:var(--green)}
+.warn{background:var(--red-bg); border-right:5px solid var(--red); border-radius:10px; padding:.7rem 1rem; margin:.7rem 0; font-size:.95rem}
+.warn b.t{color:var(--red)}
+.note{background:var(--amber-bg); border-right:5px solid var(--accent); border-radius:10px; padding:.7rem 1rem; margin:.7rem 0; font-size:.95rem}
+.note b.t{color:#b45309}
+.example{background:var(--violet-bg); border:1px dashed #a78bfa; border-radius:12px; padding:.9rem 1.1rem; margin:.8rem 0}
+.example .ex-title{font-weight:900; color:var(--brand2); margin-bottom:.3rem}
+body.dark .example .ex-title{color:#c4b5fd}
+.example ol{font-size:.95rem}
+.ex-ans{background:var(--card); border:1px solid var(--line); border-radius:8px; padding:.4rem .8rem; margin-top:.5rem; font-size:.95rem}
+/* tables */
+.table-wrap{overflow-x:auto; margin:.7rem 0}
+table{width:100%; border-collapse:collapse; font-size:.9rem; min-width:480px}
+th{background:var(--brand); color:#fff; padding:.55rem .6rem; font-weight:700}
+td{border:1px solid var(--line); padding:.5rem .6rem; text-align:center}
+tr:nth-child(even) td{background:color-mix(in srgb, var(--bg) 60%, var(--card))}
+th:first-child{border-radius:0 10px 0 0} th:last-child{border-radius:10px 0 0 0}
+/* quiz */
+details.quiz{border:1px solid var(--line); border-radius:12px; margin:.6rem 0; overflow:hidden; background:var(--card)}
+details.quiz summary{cursor:pointer; padding:.8rem 1rem; font-weight:700; list-style:none; display:flex; gap:.5rem; align-items:center}
+details.quiz summary::-webkit-details-marker{display:none}
+details.quiz summary::before{content:'❓'; flex-shrink:0}
+details.quiz[open] summary{border-bottom:1px solid var(--line); background:var(--bg)}
+details.quiz .a{padding:.8rem 1rem; font-size:.95rem}
+.q-num{background:var(--brand); color:#fff; font-size:.75rem; border-radius:8px; padding:.1rem .55rem; font-weight:700}
+/* checklist */
+.check{display:flex; gap:.7rem; align-items:flex-start; background:var(--bg); border:1px solid var(--line); border-radius:10px; padding:.6rem .9rem; margin:.5rem 0; cursor:pointer; font-size:.95rem}
+.check input{width:1.2rem; height:1.2rem; margin-top:.35rem; accent-color:var(--green); flex-shrink:0; cursor:pointer}
+/* plan */
+.plan{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:.7rem; margin-top:.7rem}
+.plan-step{background:var(--bg); border:1px solid var(--line); border-radius:12px; padding:.9rem 1rem; font-size:.9rem}
+.plan-step b{display:block; font-size:1rem; margin-bottom:.2rem}
+.plan-step .time{background:var(--brand); color:#fff; font-size:.75rem; border-radius:999px; padding:.05rem .7rem; display:inline-block; margin-bottom:.4rem}
+/* top btn */
+#topBtn{position:fixed; bottom:1.2rem; left:1.2rem; width:48px; height:48px; border-radius:50%; border:none; background:var(--brand); color:#fff; font-size:1.3rem; cursor:pointer; display:none; box-shadow:var(--shadow); z-index:900}
+footer{text-align:center; color:var(--muted); font-size:.85rem; padding:2rem 1rem 1rem}
+footer .heart{color:#e11d48}
+/* math */
+.frac{display:inline-flex; flex-direction:column; vertical-align:middle; text-align:center; margin:0 .15em}
+.frac .num{border-bottom:2px solid currentColor; padding:0 .4em}
+.frac .den{padding:0 .4em}
+.mat{display:inline-block; vertical-align:middle; border-left:2px solid currentColor; border-right:2px solid currentColor; border-radius:6px; padding:.1em .4em; margin:0 .2em; line-height:1.7}
+.mat .row{display:flex; gap:1.1em; justify-content:center}
+.sqrt{border-top:2px solid currentColor; padding:0 .1em}
+.ltr{direction:ltr; unicode-bidi:embed}
+/* print */
+@media print{
+  nav,#topBtn,.hero-cta,.no-print{display:none!important}
+  body{background:#fff} section.card{box-shadow:none; break-inside:avoid}
+  .hero-card{box-shadow:none}
+}
+@media(max-width:600px){ body{font-size:15px} section.card{padding:1.2rem .9rem} }
+</style>
+</head>
+<body>
+<div id="progress"></div>
+
+<nav>
+  <div class="nav-inner">
+    <span class="logo">📐 هندسه شب امتحان</span>
+    <div class="nav-links">
+      <a href="#plan">🗓 برنامه</a>
+      <a href="#ch1">۱️⃣ ماتریس</a>
+      <a href="#ch2">۲️⃣ مخروطی‌ها</a>
+      <a href="#ch3">۳️⃣ بردارها</a>
+      <a href="#cheat">⚡ فرمول‌نامه</a>
+      <a href="#quiz">✍️ خودآزمایی</a>
+      <a href="#checklist">✅ چک‌لیست</a>
+    </div>
+    <button class="icon-btn" id="themeBtn" title="حالت شب/روز">🌙 شب</button>
+    <button class="icon-btn no-print" onclick="window.print()" title="چاپ جزوه">🖨 چاپ</button>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-card">
+    <h1>هندسه دوازدهم • جزوه شب امتحان شهریور 🎯</h1>
+    <p class="sub">فقط چیزهایی که <b>فردا توی امتحان میاد</b>: فرمول‌های کلیدی هر ۳ فصل + مثال حل‌شده + تله‌های نمره‌خور + خودآزمایی. بخون، تست بزن، برو قبول شو و برگرد! 💪</p>
+    <div class="badges">
+      <span class="badge">فصل ۱: ماتریس و دترمینان</span>
+      <span class="badge">فصل ۲: دایره، بیضی، سهمی</span>
+      <span class="badge">فصل ۳: بردارها، خط و صفحه</span>
+    </div>
+    <div>
+      <div class="countdown" id="countdown">
+        <div><b id="cd-h">--</b><span>ساعت</span></div>
+        <div><b id="cd-m">--</b><span>دقیقه</span></div>
+        <div><b id="cd-s">--</b><span>ثانیه</span></div>
+      </div>
+      <p style="font-size:.8rem; opacity:.9; margin-top:.3rem">⏳ زمان باقی‌مانده تا امتحان فردا صبح (ساعت ۸)</p>
+    </div>
+    <div class="hero-cta">
+      <a class="btn btn-light" href="#cheat">⚡ برو سر فرمول‌نامه</a>
+      <a class="btn btn-ghost" href="#quiz">✍️ خودآزمایی سریع</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ===== PLAN ===== -->
+<section class="card" id="plan">
+  <h2 class="sec">🗓 برنامه امشب تا فردا صبح</h2>
+  <p class="sec-desc">ترتیب پیشنهادی مطالعه — از پرتکرارترین و نمره‌آورترین فصل‌ها شروع کن</p>
+  <div class="plan">
+    <div class="plan-step"><span class="time">امشب • گام ۱</span><b>🔢 فصل ۱: ماتریس (۱/۵ ساعت)</b>ساروس، وارون ۲×۲، کرامر. این فصل <b>خشک و نمره‌آور</b> است؛ با ۳ تا مثال جا می‌افتد.</div>
+    <div class="plan-step"><span class="time">امشب • گام ۲</span><b>⭕ فصل ۲: مخروطی‌ها (۲ ساعت)</b>دایره (مرکز و شعاع)، بیضی (کانون و خروج از مرکز)، سهمی (کانون و هادی). تکنیک <b>مربع کامل</b> را حتماً تمرین کن.</div>
+    <div class="plan-step"><span class="time">امشب • گام ۳</span><b>➡️ فصل ۳: بردارها (۱/۵ ساعت)</b>ضرب داخلی، زاویه، ضرب خارجی و مساحت، معادله خط و صفحه، فاصله نقطه از صفحه.</div>
+    <div class="plan-step"><span class="time">فردا صبح • مرور</span><b>⚡ فرمول‌نامه + خودآزمایی</b>فقط بخش «فرمول‌نامه یک‌نگاه» و «تله‌های امتحانی» را بخوان و ۸ سؤال خودآزمایی را جواب بده.</div>
+  </div>
+  <div class="tip"><b class="t">⭐ قانون طلایی شب امتحان:</b> به‌جای خواندن همه‌چیز، برای <b>هر مبحث فقط ۱ مثال حل‌شده</b> را با دست خودت روی کاغذ حل کن. دستی که بنویسد، مغزی که یاد می‌گیرد! ✍️</div>
+</section>
+
+<!-- ===== CH1 ===== -->
+<section class="card" id="ch1">
+  <h2 class="sec">🔢 فصل ۱: ماتریس و کاربردها</h2>
+  <p class="sec-desc">سهم خوب از نمره • سؤالاتش تکراری و قابل پیش‌بینی است</p>
+
+  <h3>۱-۱) ضرب ماتریس‌ها ✖️</h3>
+  <p>ضرب <span class="ltr">(m×n)</span> در <span class="ltr">(n×p)</span> شدنی است و حاصل <span class="ltr">(m×p)</span> می‌شود. یعنی <b>ستون‌های اولی = سطرهای دومی</b> باشد. درایه‌ها با «سطر در ستون» به دست می‌آیند.</p>
+  <div class="formula">A × B &nbsp; شدنی ⟺ &nbsp; تعداد ستون‌های A = تعداد سطرهای B<small>حاصل یک ماتریس (سطرهای اولی × ستون‌های دومی) است</small></div>
+  <div class="warn"><b class="t">⛔ تله شماره ۱:</b> ضرب ماتریسی <b>جابه‌جایی نیست!</b> یعنی در حالت کلی <span class="ltr">AB ≠ BA</span>. اگر توی امتحان گفتی جابه‌جایی است، نمره‌ات پرید!</div>
+  <div class="formula"><span class="ltr">(AB)<sup>t</sup> = B<sup>t</sup> A<sup>t</sup></span> &nbsp;&nbsp; | &nbsp;&nbsp; <span class="ltr">(AB)<sup>-1</sup> = B<sup>-1</sup> A<sup>-1</sup></span><small>⚠️ ترتیب برعکس می‌شود! (جوراب و کفش: اول جوراب می‌پوشی، ولی اول کفش را درمی‌آوری 🧦👟)</small></div>
+
+  <div class="example">
+    <div class="ex-title">📌 مثال حل‌شده (مدل امتحانی): حاصل ضرب را حساب کنید</div>
+    <p style="text-align:center">
+      <span class="mat"><span class="row"><span>1</span><span>2</span></span><span class="row"><span>0</span><span>1-</span></span></span>
+      ×
+      <span class="mat"><span class="row"><span>2</span><span>1</span></span><span class="row"><span>3</span><span>0</span></span></span>
+    </p>
+    <ol>
+      <li>سطر اول در ستون اول: <span class="ltr">1×2 + 2×3 = 8</span></li>
+      <li>سطر اول در ستون دوم: <span class="ltr">1×1 + 2×0 = 1</span></li>
+      <li>سطر دوم در ستون اول: <span class="ltr">0×2 + (-1)×3 = -3</span></li>
+      <li>سطر دوم در ستون دوم: <span class="ltr">0×1 + (-1)×0 = 0</span></li>
+    </ol>
+    <div class="ex-ans">✅ جواب: <span class="mat"><span class="row"><span>8</span><span>1</span></span><span class="row"><span>3-</span><span>0</span></span></span></div>
+  </div>
+
+  <h3>۱-۲) دترمینان ۲×۲ و ۳×۳ (ساروس) 🧮</h3>
+  <div class="formula"><span class="ltr">det = ad − bc</span><small>برای ماتریس <span class="ltr">[[a, b], [c, d]]</span> : قطر اصلی منهای قطر فرعی</small></div>
+  <p><b>روش ساروس (فقط برای ۳×۳):</b> دو ستون اول را سمت راست دوباره بنویس، حاصل‌ضرب ۳ قطر ↘ را جمع کن (<b>+</b>) و حاصل‌ضرب ۳ قطر ↙ را کم کن (<b>−</b>).</p>
+  <div class="formula ltr">a(ei+...) − ... → &nbsp; (aei + bfg + cdh) − (ceg + bdi + afh)<small>برای <span class="ltr">[[a,b,c],[d,e,f],[g,h,i]]</span></small></div>
+
+  <div class="example">
+    <div class="ex-title">📌 مثال حل‌شده: دترمینان ماتریس زیر؟</div>
+    <p style="text-align:center"><span class="mat"><span class="row"><span>1</span><span>2</span><span>0</span></span><span class="row"><span>1-</span><span>1</span><span>2</span></span><span class="row"><span>0</span><span>1</span><span>1</span></span></span></p>
+    <ol>
+      <li>دو ستون اول را تکرار کن: <span class="ltr">| 1 2 0 | 1 2 |</span> و ...</li>
+      <li>قطرهای ↘ : <span class="ltr">(1×1×1) + (2×2×0) + (0×(-1)×1) = 1 + 0 + 0 = 1</span></li>
+      <li>قطرهای ↙ : <span class="ltr">(0×1×0) + (1×2×1) + (2×(-1)×1) = 0 + 2 − 2 = 0</span></li>
+    </ol>
+    <div class="ex-ans">✅ جواب: <span class="ltr">1 − 0 = <b>1</b></span></div>
+  </div>
+
+  <h3>۱-۳) ویژگی‌های دترمینان (سؤال حفظی پرتکرار!) ⭐</h3>
+  <div class="table-wrap"><table>
+    <tr><th>ویژگی</th><th>نتیجه</th></tr>
+    <tr><td>یک سطر یا ستون، همه صفر باشد</td><td><b>دترمینان = ۰</b></td></tr>
+    <tr><td>دو سطر یا دو ستون برابر (یا مضرب هم) باشند</td><td><b>دترمینان = ۰</b></td></tr>
+    <tr><td>جای دو سطر (یا دو ستون) عوض شود</td><td>دترمینان <b>قرینه</b> می‌شود</td></tr>
+    <tr><td>یک سطر در عدد k ضرب شود</td><td>دترمینان <b>k برابر</b> می‌شود</td></tr>
+    <tr><td><span class="ltr">det(AB)</span></td><td><span class="ltr"><b>det A × det B</b></span></td></tr>
+    <tr><td><span class="ltr">det(kA)</span> برای ماتریس <span class="ltr">n×n</span></td><td><span class="ltr"><b>k<sup>n</sup> × det A</b></span></td></tr>
+    <tr><td><span class="ltr">det(A<sup>t</sup>)</span> و <span class="ltr">det(A<sup>-1</sup>)</span></td><td><span class="ltr">det A</span> و <span class="ltr">1/det A</span></td></tr>
+  </table></div>
+  <div class="warn"><b class="t">⛔ تله شماره ۲:</b> <span class="ltr">det(2A) = 2<sup>n</sup> det A</span> نه <span class="ltr">2 det A</span> ! توان n (مرتبه ماتریس) را فراموش نکن. مثلاً برای ۳×۳: هشت برابر!</div>
+
+  <h3>۱-۴) وارون ماتریس ۲×۲ 🔄</h3>
+  <p>شرط وارون‌پذیر بودن: <b>دترمینان مخالف صفر</b> باشد. فرمول حفظی:</p>
+  <div class="formula"><span class="ltr">A<sup>-1</sup> = (1/det A)</span> × «جای a و d عوض، علامت b و c عوض»<small>یعنی: <span class="ltr">[[a,b],[c,d]]<sup>-1</sup> = 1/(ad−bc) × [[d, −b], [−c, a]]</span></small></div>
+
+  <h3>۱-۵) حل دستگاه با کرامر 🎯 (مهم‌ترین سؤال فصل!)</h3>
+  <p>برای دستگاه دو معادله دو مجهول، دترمینان ضرایب را <b>D</b> بنام. بعد ستون جواب‌ها را یک‌بار جای ستون x بگذار (<b>D<sub>x</sub></b>) و یک‌بار جای ستون y (بگذار <b>D<sub>y</sub></b>):</p>
+  <div class="formula"><span class="frac"><span class="num">D<sub>x</sub></span><span class="den">D</span></span> = x &nbsp;&nbsp; ، &nbsp;&nbsp; <span class="frac"><span class="num">D<sub>y</sub></span><span class="den">D</span></span> = y<small>شرط جواب یکتا: <span class="ltr"><b>D ≠ 0</b></span></small></div>
+  <div class="note"><b class="t">📌 اگر D = ۰ شد چی؟</b> آن‌وقت: اگر <span class="ltr">D<sub>x</sub></span> یا <span class="ltr">D<sub>y</sub></span> مخالف صفر بود ← دستگاه <b>ناسازگار (بی‌جواب)</b> است. اگر همه صفر شدند ← <b>بی‌شمار جواب</b> (معمولاً) دارد. دستگاه <b>همگن</b> (طرف راست همه صفر) همیشه جواب صفر دارد و جواب غیرصفر دارد ⟺ <span class="ltr">D = 0</span>.</div>
+  <div class="example">
+    <div class="ex-title">📌 مثال حل‌شده (کرامر): دستگاه زیر را حل کنید</div>
+    <p style="text-align:center" class="ltr">2x + y = 5<br>x − y = 1</p>
+    <ol>
+      <li><span class="ltr">D = (2)(-1) − (1)(1) = −3 ≠ 0</span> پس جواب یکتا دارد ✔</li>
+      <li><span class="ltr">D<sub>x</sub> = (5)(-1) − (1)(1) = −6</span> ← ستون جواب‌ها جای ستون x</li>
+      <li><span class="ltr">D<sub>y</sub> = (2)(1) − (5)(1) = −3</span> ← ستون جواب‌ها جای ستون y</li>
+    </ol>
+    <div class="ex-ans">✅ جواب: <span class="ltr">x = −6/−3 = <b>2</b> ، y = −3/−3 = <b>1</b></span> — امتحان کن: <span class="ltr">2(2)+1=5 ✔</span></div>
+  </div>
+</section>
+
+<!-- ===== CH2 ===== -->
+<section class="card" id="ch2">
+  <h2 class="sec">⭕ فصل ۲: مقاطع مخروطی (دایره، بیضی، سهمی)</h2>
+  <p class="sec-desc">پرنمره‌ترین فصل امتحان! • کلیدش «مربع کامل» است</p>
+
+  <div class="tip"><b class="t">⭐ تکنیک مادر این فصل — مربع کامل:</b> هر وقت معادله «باز شده» دادند (مثل <span class="ltr">x² + 6x + ...</span>) باید مربع کامل کنی تا مرکز/رأس پیدا شود. فرمول جادویی: <span class="ltr"><b>x² + bx = (x + b/2)² − (b/2)²</b></span> — یعنی نصف ضریب x را به توان ۲ برسان، یک‌بار اضافه و یک‌بار کم کن. پایین ۳ بار تمرینش می‌کنیم 👇</div>
+
+  <h3>۲-۱) دایره 🔵</h3>
+  <div class="formula"><span class="ltr">(x − h)² + (y − k)² = r²</span><small>مرکز <span class="ltr">(h, k)</span> و شعاع <span class="ltr">r</span> — ⚠️ علامت‌ها برعکس خوانده می‌شوند: <span class="ltr">(x−3)</span> یعنی <span class="ltr">h = +3</span></small></div>
+  <p><b>فرم گسترده:</b> <span class="ltr">x² + y² + Dx + Ey + F = 0</span> ← مرکز <span class="ltr">(−D/2, −E/2)</span> و شعاع:</p>
+  <div class="formula"><span class="ltr">r = √( (D/2)² + (E/2)² − F )</span><small>زیر رادیکال باید مثبت شود وگرنه اصلاً دایره نیست!</small></div>
+  <p><b>وضعیت خط نسبت به دایره:</b> فاصله مرکز تا خط (<span class="ltr">d</span>) را حساب کن و با شعاع مقایسه کن:</p>
+  <div class="formula"><span class="ltr">d = |ah + bk + c| / √(a² + b²)</span><small>فاصله مرکز <span class="ltr">(h,k)</span> تا خط <span class="ltr">ax + by + c = 0</span></small></div>
+  <div class="table-wrap"><table>
+    <tr><th>مقایسه</th><th>وضعیت خط و دایره</th></tr>
+    <tr><td><span class="ltr"><b>d &lt; r</b></span></td><td>خط دایره را در <b>دو نقطه</b> قطع می‌کند ✂️✂️</td></tr>
+    <tr><td><span class="ltr"><b>d = r</b></span></td><td>خط بر دایره <b>مماس</b> است 👆 (یک نقطه مشترک)</td></tr>
+    <tr><td><span class="ltr"><b>d &gt; r</b></span></td><td>خط و دایره <b>متقاطع نیستند</b> (جدا از هم) 🚫</td></tr>
+  </table></div>
+  <div class="note"><b class="t">📌 معادله مماس حفظی:</b> خط مماس بر دایره <span class="ltr">x² + y² = r²</span> در نقطه <span class="ltr">(x₀, y₀)</span> روی دایره: <span class="ltr"><b>xx₀ + yy₀ = r²</b></span> — فقط یکی از x و yها صفر می‌گیرد!</div>
+
+  <div class="example">
+    <div class="ex-title">📌 مثال حل‌شده: مرکز و شعاع دایره <span class="ltr">x² + y² − 4x + 6y − 3 = 0</span> ؟</div>
+    <ol>
+      <li>مربع کامل برای x: <span class="ltr">x² − 4x = (x − 2)² − 4</span></li>
+      <li>مربع کامل برای y: <span class="ltr">y² + 6y = (y + 3)² − 9</span></li>
+      <li>جایگذاری: <span class="ltr">(x−2)² − 4 + (y+3)² − 9 − 3 = 0</span> یعنی <span class="ltr">(x−2)² + (y+3)² = 16</span></li>
+    </ol>
+    <div class="ex-ans">✅ مرکز <span class="ltr"><b>(2, −3)</b></span> و شعاع <span class="ltr"><b>r = 4</b></span></div>
+  </div>
+
+  <h3>۲-۲) بیضی 🥚</h3>
+  <p>مجموع فاصله هر نقطه بیضی از دو <b>کانون</b> ثابت و برابر <span class="ltr">2a</span> (طول قطر بزرگ) است. همیشه <span class="ltr">a > b</span> و:</p>
+  <div class="formula"><span class="ltr"><b>c² = a² − b²</b></span> &nbsp;&nbsp; و &nbsp;&nbsp; خروج از مرکز <span class="ltr"><b>e = c/a</b></span> (همیشه بین ۰ و ۱)<small>⚠️ در بیضی منها! (<span class="ltr">c² = a² − b²</span>) — قاطی نکن</small></div>
+  <div class="table-wrap"><table>
+    <tr><th>معادله استاندارد</th><th>کانون‌ها روی …</th><th>کانون‌ها</th><th>رأس‌های اصلی</th></tr>
+    <tr><td><span class="ltr">x²/a² + y²/b² = 1</span></td><td>محور xها (افقی ↔)</td><td><span class="ltr">(±c, 0)</span></td><td><span class="ltr">(±a, 0)</span></td></tr>
+    <tr><td><span class="ltr">x²/b² + y²/a² = 1</span></td><td>محور yها (عمودی ↕)</td><td><span class="ltr">(0, ±c)</span></td><td><span class="ltr">(0, ±a)</span></td></tr>
+  </table></div>
+  <div class="tip"><b class="t">⭐ ترفند تشخیص در ۳ ثانیه:</b> <b>مخرج بزرگ‌تر = <span class="ltr">a²</span></b> است و کانون روی همان محور می‌افتد. مثلاً <span class="ltr">x²/25 + y²/9 = 1</span> ← چون ۲۵ > ۹ پس <span class="ltr">a²=25</span> و کانون‌ها روی محور x هستند: <span class="ltr">c = √(25−9) = 4</span> یعنی <span class="ltr">(±4, 0)</span> ✔</div>
+
+  <div class="example">
+    <div class="ex-title">📌 مثال حل‌شده: در بیضی <span class="ltr">x²/16 + y²/25 = 1</span> کانون‌ها و خروج از مرکز؟</div>
+    <ol>
+      <li>مخرج بزرگ‌تر زیر <span class="ltr">y²</span> است پس <span class="ltr">a² = 25</span> و <span class="ltr">b² = 16</span> و کانون روی محور y ↕</li>
+      <li><span class="ltr">c² = 25 − 16 = 9</span> پس <span class="ltr">c = 3</span></li>
+      <li><span class="ltr">e = c/a = 3/5</span></li>
+    </ol>
+    <div class="ex-ans">✅ کانون‌ها <span class="ltr"><b>(0, ±3)</b></span> و خروج از مرکز <span class="ltr"><b>e = 3/5</b></span></div>
+  </div>
+
+  <h3>۲-۳) سهمی 🏀</h3>
+  <p>هر نقطه سهمی از <b>کانون (F)</b> و <b>خط هادی (l)</b> به یک فاصله است. رأس دقیقاً <b>وسط</b> کانون و هادی است. ۴ حالت استاندارد (رأس در مبدأ):</p>
+  <div class="table-wrap"><table>
+    <tr><th>معادله</th><th>کانون F</th><th>خط هادی</th><th>دهانه به سمت</th></tr>
+    <tr><td><span class="ltr">y² = 4px</span> با <span class="ltr">p>0</span></td><td><span class="ltr">(p, 0)</span></td><td><span class="ltr">x = −p</span></td><td>راست ➡️</td></tr>
+    <tr><td><span class="ltr">y² = −4px</span> با <span class="ltr">p>0</span></td><td><span class="ltr">(−p, 0)</span></td><td><span class="ltr">x = p</span></td><td>چپ ⬅️</td></tr>
+    <tr><td><span class="ltr">x² = 4py</span> با <span class="ltr">p>0</span></td><td><span class="ltr">(0, p)</span></td><td><span class="ltr">y = −p</span></td><td>بالا ⬆️</td></tr>
+    <tr><td><span class="ltr">x² = −4py</span> با <span class="ltr">p>0</span></td><td><span class="ltr">(0, −p)</span></td><td><span class="ltr">y = p</span></td><td>پایین ⬇️</td></tr>
+  </table></div>
+  <div class="tip"><b class="t">⭐ ترفند حفظی:</b> ۱) آن متغیری که <b>توان ۲</b> دارد می‌گوید کانون روی کدام محور است (<span class="ltr">y²</span> ← محور x). ۲) <b>علامت</b> جهت دهانه را می‌گوید. ۳) عدد کنار متغیر درجه ۱ را <b>تقسیم بر ۴</b> کن تا <span class="ltr">p</span> به دست آید. مثلاً <span class="ltr">y² = 12x</span> ← <span class="ltr">4p = 12</span> ← <span class="ltr">p = 3</span> ← کانون <span class="ltr">(3, 0)</span>، هادی <span class="ltr">x = −3</span> ✔</div>
+  <div class="warn"><b class="t">⛔ تله شماره ۳:</b> اگر معادله سهمی به فرم <span class="ltr">y = ax² + bx + c</span> دادند (رأس نه در مبدأ)، حتماً <b>مربع کامل</b> کن تا به فرم <span class="ltr">(x−h)² = 4p(y−k)</span> برسی؛ آن‌وقت رأس <span class="ltr">(h,k)</span> و کانون <span class="ltr">(h, k+p)</span> است.</div>
+
+  <div class="example">
+    <div class="ex-title">📌 مثال حل‌شده: کانون و هادی سهمی <span class="ltr">x² − 4x − 8y + 4 = 0</span> ؟</div>
+    <ol>
+      <li>مرتب کن: <span class="ltr">x² − 4x = 8y − 4</span></li>
+      <li>مربع کامل: <span class="ltr">(x − 2)² − 4 = 8y − 4</span> یعنی <span class="ltr">(x − 2)² = 8y</span> یعنی <span class="ltr">(x−2)² = 8(y − 0)</span></li>
+      <li>رأس <span class="ltr">(2, 0)</span> و <span class="ltr">4p = 8</span> پس <span class="ltr">p = 2</span>؛ چون <span class="ltr">x²</span> داریم، کانون روی خط قائم رأس است و چون علامت مثبت، به بالا ⬆️</li>
+    </ol>
+    <div class="ex-ans">✅ رأس <span class="ltr"><b>(2, 0)</b></span>، کانون <span class="ltr"><b>(2, 2)</b></span>، هادی <span class="ltr"><b>y = −2</b></span></div>
+  </div>
+
+  <h3>۲-۴) تشخیص سریع نوع مقطع مخروطی از روی معادله 🔍</h3>
+  <div class="table-wrap"><table>
+    <tr><th>معادله چه شکلی است؟</th><th>نوع مقطع</th></tr>
+    <tr><td>ضرایب <span class="ltr">x²</span> و <span class="ltr">y²</span> <b>برابر و هم‌علامت</b></td><td>🔵 <b>دایره</b></td></tr>
+    <tr><td>ضرایب <span class="ltr">x²</span> و <span class="ltr">y²</span> <b>نامساوی ولی هم‌علامت</b></td><td>🥚 <b>بیضی</b></td></tr>
+    <tr><td>فقط <b>یکی</b> از x یا y توان ۲ دارد</td><td>🏀 <b>سهمی</b></td></tr>
+  </table></div>
+</section>
+
+<!-- ===== CH3 ===== -->
+<section class="card" id="ch3">
+  <h2 class="sec">➡️ فصل ۳: بردارها، خط و صفحه</h2>
+  <p class="sec-desc">قلب هندسه فضایی • فرمول‌ها را قدم‌به‌قدم با مثال یاد بگیر</p>
+
+  <h3>۳-۱) طول بردار و بردار یکه 📏</h3>
+  <div class="formula"><span class="ltr">|v| = √(x² + y² + z²)</span><small>بردار <span class="ltr">AB</span> = مختصات <span class="ltr">B</span> منهای <span class="ltr">A</span> (مقصد منهای مبدأ 🎯)</small></div>
+  <div class="formula">بردار یکه هم‌جهت با <span class="ltr">v</span> : <span class="frac"><span class="num">v</span><span class="den"><span class="ltr">|v|</span></span></span><small>یعنی بردار را بر طولش تقسیم کن</small></div>
+
+  <h3>۳-۲) ضرب داخلی (دات) و زاویه 📐</h3>
+  <div class="formula"><span class="ltr">a · b = x₁x₂ + y₁y₂ + z₁z₂ = |a| |b| cos θ</span><small>متناظرها را در هم ضرب کن و جمع بزن</small></div>
+  <div class="table-wrap"><table>
+    <tr><th>چی می‌خواهیم؟</th><th>فرمول</th></tr>
+    <tr><td>زاویه بین دو بردار</td><td><span class="ltr"><b>cos θ = (a·b) / (|a||b|)</b></span></td></tr>
+    <tr><td>شرط <b>تعامد</b> (عمود بودن ⊥)</td><td><span class="ltr"><b>a · b = 0</b></span></td></tr>
+    <tr><td>تصویر قائم <span class="ltr">a</span> روی <span class="ltr">b</span> (بردارش)</td><td><span class="ltr"><b>((a·b)/|b|²) b</b></span></td></tr>
+    <tr><td>اندازه تصویر (عددش)</td><td><span class="ltr"><b>|a·b| / |b|</b></span></td></tr>
+  </table></div>
+  <div class="warn"><b class="t">⛔ تله شماره ۴:</b> در فرمول تصویر، مخرج <span class="ltr"><b>|b|²</b></span> است (<b>به توان ۲!</b>) — خیلی‌ها توان ۲ را جا می‌اندازند. و دقت کن تصویر «روی» کدام بردار خواسته شده؛ همان در مخرج و انتهای فرمول می‌آید.</div>
+
+  <div class="example">
+    <div class="ex-title">📌 مثال حل‌شده: اگر <span class="ltr">a = (2, −1, 2)</span> و <span class="ltr">b = (1, 2, 2)</span> ، زاویه بین‌شان؟</div>
+    <ol>
+      <li><span class="ltr">a·b = (2)(1) + (−1)(2) + (2)(2) = 2 − 2 + 4 = 4</span></li>
+      <li><span class="ltr">|a| = √(4+1+4) = 3</span> و <span class="ltr">|b| = √(1+4+4) = 3</span></li>
+      <li><span class="ltr">cos θ = 4/(3×3) = 4/9</span></li>
+    </ol>
+    <div class="ex-ans">✅ <span class="ltr"><b>cos θ = 4/9</b></span> (خود زاویه را معمولاً نمی‌خواهند، همین کسینوس کافی است)</div>
+  </div>
+
+  <h3>۳-۳) ضرب خارجی (کراس) ✖️</h3>
+  <p>حاصل یک <b>بردار</b> است که بر هر دو بردار <b>عمود</b> است. اندازه‌اش = مساحت متوازی‌الاضلاع ساخته‌شده روی دو بردار:</p>
+  <div class="formula"><span class="ltr">|a × b| = |a| |b| sin θ</span> = مساحت متوازی‌الاضلاع<small>مساحت مثلث = نصف آن: <span class="ltr"><b>S = ½ |a × b|</b></span> 🔺</small></div>
+  <div class="formula"><span class="ltr">a × b = −(b × a)</span> &nbsp; | &nbsp; <span class="ltr">i×j = k ، j×k = i ، k×i = j</span><small>⛔ جابه‌جایی نیست و قرینه می‌شود! (تله تکراری) — چرخه <span class="ltr">i → j → k → i</span> را حفظ کن 🔄</small></div>
+  <p><b>روش محاسبه:</b> دترمینان ۳×۳ با سطر اول <span class="ltr">i, j, k</span> و سطرهای بعد مؤلفه‌های <span class="ltr">a</span> و <span class="ltr">b</span> (با ساروس حساب کن).</p>
+  <div class="note"><b class="t">📌 حجم‌ها (سؤال محبوب طراحان!):</b> حجم متوازی‌السطوح با یال‌های <span class="ltr">a, b, c</span> برابر <span class="ltr"><b>|(a×b) · c|</b></span> است (اول کراس، بعد دات، آخر قدرمطلق). حجم <b>چهاروجهی (هرم مثلثی)</b> = <span class="ltr"><b>⅙</b></span> همین مقدار.</div>
+
+  <div class="example">
+    <div class="ex-title">📌 مثال حل‌شده: مساحت مثلثی با رأس‌های <span class="ltr">A(1,0,0)</span> ، <span class="ltr">B(0,1,0)</span> ، <span class="ltr">C(0,0,1)</span> ؟</div>
+    <ol>
+      <li>دو بردار از یک رأس: <span class="ltr">AB = (−1, 1, 0)</span> و <span class="ltr">AC = (−1, 0, 1)</span></li>
+      <li>ضرب خارجی با ساروس: <span class="ltr">AB × AC = (1×1 − 0×0 , 0×(−1) − (−1)×1 , ...)</span> ← با دقت حساب کن: <span class="ltr"><b>(1, 1, 1)</b></span></li>
+      <li><span class="ltr">|AB × AC| = √(1+1+1) = √3</span> و مساحت مثلث نصف آن است</li>
+    </ol>
+    <div class="ex-ans">✅ مساحت = <span class="ltr"><b>√3 / 2</b></span></div>
+  </div>
+
+  <h3>۳-۴) معادله خط در فضا 🛤️</h3>
+  <p>خط گذرنده از نقطه <span class="ltr">(x₀, y₀, z₀)</span> با بردار هادی <span class="ltr">u = (a, b, c)</span> :</p>
+  <div class="formula">پارامتری: <span class="ltr">x = x₀ + at ، y = y₀ + bt ، z = z₀ + ct</span><small>متقارن: <span class="ltr"><b>(x−x₀)/a = (y−y₀)/b = (z−z₀)/c</b></span></small></div>
+  <div class="note"><b class="t">📌 وضعیت دو خط:</b> اول بردارهای هادی را چک کن: اگر <b>موازی (مضرب هم)</b> بودند ← دو خط موازی یا منطبق‌اند (یک نقطه را امتحان کن). اگر موازی نبودند ← یا <b>متنافر</b>‌اند یا <b>متقاطع</b> (با مساوی گذاشتن پارامتری‌ها و سازگاری، نقطه تقاطع را پیدا کن).</div>
+
+  <h3>۳-۵) معادله صفحه 🪞 (پای ثابت امتحان!)</h3>
+  <p>صفحه گذرنده از نقطه <span class="ltr">(x₀, y₀, z₀)</span> با بردار نرمال (عمود بر صفحه) <span class="ltr">n = (a, b, c)</span> :</p>
+  <div class="formula"><span class="ltr"><b>a(x − x₀) + b(y − y₀) + c(z − z₀) = 0</b></span><small>فرم کلی: <span class="ltr">ax + by + cz + d = 0</span> که در آن <span class="ltr">(a, b, c)</span> همان بردار نرمال است</small></div>
+  <div class="formula">فاصله نقطه <span class="ltr">(x₀,y₀,z₀)</span> از صفحه <span class="ltr">ax+by+cz+d=0</span> : &nbsp; <span class="frac"><span class="num"><span class="ltr">|ax₀ + by₀ + cz₀ + d|</span></span><span class="den"><span class="ltr">√(a² + b² + c²)</span></span></span><small>⛔ قدرمطلق صورت کسر را فراموش نکن!</small></div>
+  <div class="table-wrap"><table>
+    <tr><th>وضعیت</th><th>شرط (با بردار هادی خط <span class="ltr">u</span> و نرمال صفحه <span class="ltr">n</span>)</th></tr>
+    <tr><td>خط <b>موازی</b> صفحه ➖</td><td><span class="ltr"><b>u · n = 0</b></span> (هادی بر نرمال عمود است)</td></tr>
+    <tr><td>خط <b>عمود</b> بر صفحه ⬇️</td><td><span class="ltr"><b>u ∥ n</b></span> (هادی مضرب نرمال است)</td></tr>
+    <tr><td>دو صفحه <b>موازی</b></td><td>نرمال‌ها موازی‌اند (<span class="ltr">n₁ ∥ n₂</span>)</td></tr>
+    <tr><td>دو صفحه <b>عمود</b></td><td><span class="ltr"><b>n₁ · n₂ = 0</b></span></td></tr>
+  </table></div>
+
+  <div class="example">
+    <div class="ex-title">📌 مثال حل‌شده: معادله صفحه‌ای که از <span class="ltr">A(1, 2, −1)</span> بگذرد و بر بردار <span class="ltr">n = (2, −1, 3)</span> عمود باشد؟</div>
+    <ol>
+      <li>فرمول: <span class="ltr">2(x − 1) − 1(y − 2) + 3(z + 1) = 0</span></li>
+      <li>باز کن: <span class="ltr">2x − 2 − y + 2 + 3z + 3 = 0</span></li>
+    </ol>
+    <div class="ex-ans">✅ <span class="ltr"><b>2x − y + 3z + 3 = 0</b></span> — راستی‌آزمایی: نقطه A را بگذار: <span class="ltr">2−2−3+3=0 ✔</span></div>
+  </div>
+</section>
+
+<!-- ===== CHEAT ===== -->
+<section class="card" id="cheat">
+  <h2 class="sec">⚡ فرمول‌نامه یک‌نگاه (مرور ۱۰ دقیقه‌ای فردا صبح)</h2>
+  <p class="sec-desc">فقط همین یک بخش را صبح امتحان بخوان — همه فرمول‌های نمره‌آور اینجاست</p>
+  <div class="table-wrap"><table>
+    <tr><th>مبحث</th><th>فرمول طلایی</th></tr>
+    <tr><td>دترمینان ۲×۲</td><td><span class="ltr"><b>ad − bc</b></span></td></tr>
+    <tr><td>ساروس ۳×۳</td><td>قطرهای ↘ جمع، قطرهای ↙ کم</td></tr>
+    <tr><td>وارون ۲×۲</td><td><span class="ltr"><b>1/(ad−bc) [[d,−b],[−c,a]]</b></span></td></tr>
+    <tr><td>کرامر</td><td><span class="ltr"><b>x = Dx/D ، y = Dy/D</b></span> (اگر <span class="ltr">D≠0</span>)</td></tr>
+    <tr><td><span class="ltr">det(kA)</span></td><td><span class="ltr"><b>kⁿ det A</b></span></td></tr>
+    <tr><td>دایره</td><td><span class="ltr"><b>(x−h)² + (y−k)² = r²</b></span></td></tr>
+    <tr><td>مماس بر <span class="ltr">x²+y²=r²</span></td><td><span class="ltr"><b>xx₀ + yy₀ = r²</b></span></td></tr>
+    <tr><td>بیضی</td><td><span class="ltr"><b>c² = a² − b²</b></span> ، <span class="ltr"><b>e = c/a</b></span> ، مخرج بزرگ‌تر = <span class="ltr">a²</span></td></tr>
+    <tr><td>سهمی <span class="ltr">y²=4px</span></td><td>کانون <span class="ltr"><b>(p,0)</b></span> ، هادی <span class="ltr"><b>x=−p</b></span></td></tr>
+    <tr><td>مربع کامل</td><td><span class="ltr"><b>x²+bx = (x+b/2)² − (b/2)²</b></span></td></tr>
+    <tr><td>طول بردار</td><td><span class="ltr"><b>√(x²+y²+z²)</b></span></td></tr>
+    <tr><td>زاویه دو بردار</td><td><span class="ltr"><b>cosθ = (a·b)/(|a||b|)</b></span></td></tr>
+    <tr><td>تعامد</td><td><span class="ltr"><b>a·b = 0</b></span></td></tr>
+    <tr><td>تصویر a روی b</td><td><span class="ltr"><b>((a·b)/|b|²) b</b></span></td></tr>
+    <tr><td>مساحت مثلث</td><td><span class="ltr"><b>½ |a×b|</b></span></td></tr>
+    <tr><td>حجم متوازی‌السطوح</td><td><span class="ltr"><b>|(a×b)·c|</b></span> (چهاروجهی: یک‌ششم)</td></tr>
+    <tr><td>خط (متقارن)</td><td><span class="ltr"><b>(x−x₀)/a = (y−y₀)/b = (z−z₀)/c</b></span></td></tr>
+    <tr><td>صفحه</td><td><span class="ltr"><b>a(x−x₀)+b(y−y₀)+c(z−z₀)=0</b></span></td></tr>
+    <tr><td>فاصله نقطه از صفحه</td><td><span class="ltr"><b>|ax₀+by₀+cz₀+d| / √(a²+b²+c²)</b></span></td></tr>
+    <tr><td>خط موازی صفحه</td><td><span class="ltr"><b>u·n = 0</b></span></td></tr>
+  </table></div>
+  <div class="warn"><b class="t">⛔ ۵ تله مرگبار (هرکدام = نمره مفت!):</b>
+    ۱) <span class="ltr">AB ≠ BA</span> و <span class="ltr">a×b = −(b×a)</span> (جابه‌جایی ممنوع!)
+    ۲) <span class="ltr">det(kA) = kⁿdetA</span> (توان n!)
+    ۳) مخرج تصویر <span class="ltr">|b|²</span> است (توان ۲!)
+    ۴) قدرمطلق در فاصله نقطه از صفحه و خط
+    ۵) علامت مرکز دایره برعکس خوانده می‌شود: <span class="ltr">(x−3)</span> یعنی <span class="ltr">h=+3</span>
+  </div>
+</section>
+
+<!-- ===== QUIZ ===== -->
+<section class="card" id="quiz">
+  <h2 class="sec">✍️ خودآزمایی شب امتحان (روی هر سؤال بزن تا جواب بیاد)</h2>
+  <p class="sec-desc">اول خودت روی کاغذ حل کن، بعد جواب را چک کن — رودربایستی با خودت ممنوع! 😄</p>
+
+  <details class="quiz"><summary><span class="q-num">۱</span> دترمینان <span class="ltr">[[3, 1], [2, 4]]</span> چقدر است؟</summary>
+    <div class="a">✅ <span class="ltr">(3×4) − (1×2) = 12 − 2 = <b>10</b></span></div></details>
+
+  <details class="quiz"><summary><span class="q-num">۲</span> اگر A ماتریس ۳×۳ با <span class="ltr">det A = 2</span> باشد، <span class="ltr">det(3A)</span> ؟</summary>
+    <div class="a">✅ <span class="ltr">det(3A) = 3³ × 2 = 27 × 2 = <b>54</b></span> — توان ۳ یادت نره! (تله شماره ۲ 🎯)</div></details>
+
+  <details class="quiz"><summary><span class="q-num">۳</span> دستگاه <span class="ltr">x + 2y = 7</span> و <span class="ltr">3x − y = 7</span> را با کرامر حل کنید.</summary>
+    <div class="a">✅ <span class="ltr">D = (1)(−1) − (2)(3) = −7</span> ، <span class="ltr">Dx = (7)(−1) − (2)(7) = −21</span> ، <span class="ltr">Dy = (1)(7) − (7)(3) = −14</span> ← <span class="ltr"><b>x = 3 ، y = 2</b></span> ✔</div></details>
+
+  <details class="quiz"><summary><span class="q-num">۴</span> مرکز و شعاع دایره <span class="ltr">x² + y² + 2x − 8y + 8 = 0</span> ؟</summary>
+    <div class="a">✅ مربع کامل: <span class="ltr">(x+1)² − 1 + (y−4)² − 16 + 8 = 0</span> یعنی <span class="ltr">(x+1)² + (y−4)² = 9</span> ← مرکز <span class="ltr"><b>(−1, 4)</b></span> و شعاع <span class="ltr"><b>3</b></span></div></details>
+
+  <details class="quiz"><summary><span class="q-num">۵</span> در بیضی <span class="ltr">x²/9 + y²/25 = 1</span> ، کانون‌ها و خروج از مرکز؟</summary>
+    <div class="a">✅ مخرج بزرگ‌تر (۲۵) زیر <span class="ltr">y²</span> پس: <span class="ltr">a²=25, b²=9</span> ، <span class="ltr">c = √(25−9) = 4</span> ← کانون‌ها <span class="ltr"><b>(0, ±4)</b></span> و <span class="ltr"><b>e = 4/5</b></span></div></details>
+
+  <details class="quiz"><summary><span class="q-num">۶</span> کانون و خط هادی سهمی <span class="ltr">y² = −16x</span> ؟</summary>
+    <div class="a">✅ <span class="ltr">4p = 16</span> پس <span class="ltr">p = 4</span>؛ چون علامت منفی و <span class="ltr">y²</span> داریم: دهانه به چپ ⬅️، کانون <span class="ltr"><b>(−4, 0)</b></span>، هادی <span class="ltr"><b>x = 4</b></span></div></details>
+
+  <details class="quiz"><summary><span class="q-num">۷</span> اگر <span class="ltr">a = (1, 2, 2)</span> و <span class="ltr">b = (2, 0, 1)</span> ، حاصل <span class="ltr">a·b</span> و <span class="ltr">|a|</span> ؟ آیا بر هم عمودند؟</summary>
+    <div class="a">✅ <span class="ltr">a·b = 2 + 0 + 2 = <b>4</b></span> ، <span class="ltr">|a| = √(1+4+4) = <b>3</b></span> — چون ضرب داخلی صفر نشد، <b>عمود نیستند</b> ❌</div></details>
+
+  <details class="quiz"><summary><span class="q-num">۸</span> فاصله نقطه <span class="ltr">(1, 0, 2)</span> از صفحه <span class="ltr">2x − y + 2z − 5 = 0</span> ؟</summary>
+    <div class="a">✅ صورت: <span class="ltr">|2(1) − 0 + 2(2) − 5| = |2+4−5| = 1</span> ، مخرج: <span class="ltr">√(4+1+4) = 3</span> ← فاصله = <span class="ltr"><b>1/3</b></span></div></details>
+</section>
+
+<!-- ===== CHECKLIST ===== -->
+<section class="card" id="checklist">
+  <h2 class="sec">✅ چک‌لیست شب امتحان</h2>
+  <p class="sec-desc">تیک بزن و با خیال راحت بخواب 😴 (تیک‌ها ذخیره می‌شوند)</p>
+  <label class="check"><input type="checkbox" data-k="c1"> <span>۱ مثال <b>ضرب ماتریس</b> و ۱ مثال <b>ساروس</b> با دست حل کردم</span></label>
+  <label class="check"><input type="checkbox" data-k="c2"> <span>۱ دستگاه با <b>کرامر</b> کامل حل کردم (D، Dx، Dy)</span></label>
+  <label class="check"><input type="checkbox" data-k="c3"> <span>فرمول <b>وارون ۲×۲</b> را از حفظ بلدم</span></label>
+  <label class="check"><input type="checkbox" data-k="c4"> <span><b>مربع کامل</b> را روی ۱ دایره و ۱ سهمی تمرین کردم</span></label>
+  <label class="check"><input type="checkbox" data-k="c5"> <span>فرق <b>کانون بیضی و سهمی</b> و فرمول <span class="ltr">c²=a²−b²</span> یادم است</span></label>
+  <label class="check"><input type="checkbox" data-k="c6"> <span>۱ سؤال <b>زاویه/تصویر</b> و ۱ سؤال <b>ضرب خارجی</b> حل کردم</span></label>
+  <label class="check"><input type="checkbox" data-k="c7"> <span>فرمول <b>صفحه</b> و <b>فاصله نقطه از صفحه</b> را بلدم</span></label>
+  <label class="check"><input type="checkbox" data-k="c8"> <span><b>۵ تله مرگبار</b> فرمول‌نامه را یک‌بار مرور کردم</span></label>
+  <label class="check"><input type="checkbox" data-k="c9"> <span>هر ۸ سؤال <b>خودآزمایی</b> را جواب دادم</span></label>
+  <label class="check"><input type="checkbox" data-k="c10"> <span>🎒 وسایل امتحان آماده است: کارت، خودکار اضافه، ماشین‌حساب (اگر مجاز است)</span></label>
+  <div class="tip"><b class="t">💡 توصیه آخر:</b> امشب حداکثر تا ۱۲ بیدار بمان و <b>خوب بخواب</b>؛ مغز خسته فرمول‌ها را پس می‌دهد! صبح فقط «فرمول‌نامه یک‌نگاه» را بخوان. سر جلسه اول سؤال‌های فصل ۱ (ماتریس) را بزن که مطمئنی، بعد برو سراغ بقیه. <b>موفق باشی، قهرمان! 🍀💪</b></div>
+</section>
+
+</main>
+
+<footer>
+  ساخته شده با <span class="heart">❤</span> برای امتحان شهریور هندسه دوازدهم — برو قبول شو و برگرد! 🎓<br>
+  <span style="font-size:.78rem">نکته: این جزوه خلاصه شب امتحانی است و جای کتاب درسی را نمی‌گیرد.</span>
+</footer>
+
+<button id="topBtn" title="برگشت به بالا">⬆</button>
+
+<script>
+// progress bar + top button
+const topBtn = document.getElementById('topBtn');
+window.addEventListener('scroll', () => {
+  const h = document.documentElement;
+  const p = h.scrollTop / (h.scrollHeight - h.clientHeight) * 100;
+  document.getElementById('progress').style.width = p + '%';
+  topBtn.style.display = h.scrollTop > 500 ? 'block' : 'none';
+});
+topBtn.onclick = () => window.scrollTo({top:0, behavior:'smooth'});
+
+// theme toggle
+const themeBtn = document.getElementById('themeBtn');
+function setTheme(dark){
+  document.body.classList.toggle('dark', dark);
+  themeBtn.textContent = dark ? '☀️ روز' : '🌙 شب';
+  try{ localStorage.setItem('theme', dark ? 'dark' : 'light'); }catch(e){}
+}
+themeBtn.onclick = () => setTheme(!document.body.classList.contains('dark'));
+try{ if(localStorage.getItem('theme') === 'dark') setTheme(true); }catch(e){}
+
+// checklist persistence
+document.querySelectorAll('.check input').forEach(cb => {
+  const k = 'quiz_' + cb.dataset.k;
+  try{ cb.checked = localStorage.getItem(k) === '1'; }catch(e){}
+  cb.addEventListener('change', () => { try{ localStorage.setItem(k, cb.checked ? '1' : '0'); }catch(e){} });
+});
+
+// countdown to next 8:00 AM (exam morning)
+function tick(){
+  const now = new Date();
+  const target = new Date(now);
+  target.setHours(8, 0, 0, 0);
+  if(target <= now) target.setDate(target.getDate() + 1);
+  let d = Math.floor((target - now) / 1000);
+  const h = Math.floor(d / 3600), m = Math.floor((d % 3600) / 60), s = d % 60;
+  const fa = n => Number(n).toLocaleString('fa-IR', {minimumIntegerDigits: 2});
+  document.getElementById('cd-h').textContent = fa(h);
+  document.getElementById('cd-m').textContent = fa(m);
+  document.getElementById('cd-s').textContent = fa(s);
+}
+tick(); setInterval(tick, 1000);
+</script>
+</body>
+</html>
