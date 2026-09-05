@@ -268,6 +268,47 @@ tbody tr:hover td{background:color-mix(in srgb, var(--brand) 9%, var(--card))}
 /* footer */
 footer{background:linear-gradient(180deg,transparent,color-mix(in srgb, var(--brand) 7%, transparent))}
 @media print{ .ticker,#game,#pomo{display:none!important} }
+
+/* ================= v4 EXTREME ================= */
+body::before{content:''; position:fixed; inset:0; z-index:0; pointer-events:none; background:radial-gradient(340px 340px at 12% 16%, rgba(124,58,237,.13), transparent 60%),radial-gradient(300px 300px at 88% 36%, rgba(79,70,229,.12), transparent 60%),radial-gradient(340px 340px at 55% 88%, rgba(245,158,11,.09), transparent 60%); animation:blobfloat 18s ease-in-out infinite alternate}
+@keyframes blobfloat{from{transform:translateY(-24px) scale(1)} to{transform:translateY(28px) scale(1.07)}}
+main,header.hero,footer,.ticker{position:relative; z-index:1}
+.hero-card{transition:transform .18s ease-out}
+@keyframes secflash{0%{box-shadow:0 0 0 5px var(--accent)} 100%{box-shadow:var(--shadow)}}
+section.card.flash{animation:secflash 1.6s ease}
+/* dashboard */
+.dash-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:.7rem; margin-top:.5rem}
+.dash-item{background:var(--bg); border:1px solid var(--line); border-radius:14px; padding:.8rem .9rem; text-align:center; transition:transform .2s}
+.dash-item:hover{transform:translateY(-3px)}
+.dash-item b{font-size:1.3rem; display:block; font-variant-numeric:tabular-nums}
+.dash-item span{font-size:.78rem; color:var(--muted)}
+.dash-bar{height:8px; background:var(--line); border-radius:99px; overflow:hidden; margin-top:.4rem}
+.dash-fill{height:100%; width:0; border-radius:99px; background:linear-gradient(90deg,var(--brand),var(--brand2),var(--accent)); transition:width .6s}
+/* chapter done */
+.ch-done-btn{margin-top:1rem}
+.ch-done-btn.done{background:linear-gradient(135deg,var(--green),#34d399)}
+section.ch-done{border:2px solid var(--green)}
+/* command palette */
+.palette-back{position:fixed; inset:0; background:rgba(15,20,34,.6); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px); z-index:3000; display:none; align-items:flex-start; justify-content:center; padding:12vh 1rem 1rem}
+.palette-back.open{display:flex}
+.palette{width:100%; max-width:520px; background:var(--card); border:1px solid var(--line); border-radius:18px; box-shadow:0 24px 70px rgba(0,0,0,.45); overflow:hidden; animation:palin .25s ease}
+@keyframes palin{from{opacity:0; transform:translateY(-14px) scale(.98)} to{opacity:1; transform:none}}
+#pal-input{width:100%; border:none; background:transparent; color:var(--ink); font-family:inherit; font-size:1.05rem; font-weight:700; padding:1rem 1.2rem; border-bottom:2px solid var(--line)}
+#pal-input:focus{outline:none; border-color:var(--brand)}
+#pal-list{max-height:320px; overflow-y:auto; padding:.5rem}
+.pal-item{display:flex; justify-content:space-between; align-items:center; gap:.6rem; padding:.6rem .9rem; border-radius:10px; cursor:pointer; font-size:.92rem}
+.pal-item b{font-weight:700}
+.pal-item span{font-size:.75rem; color:var(--muted); background:var(--bg); border:1px solid var(--line); border-radius:999px; padding:.05rem .7rem; white-space:nowrap}
+.pal-item.sel,.pal-item:hover{background:linear-gradient(135deg,var(--brand),var(--brand2)); color:#fff}
+.pal-item.sel span,.pal-item:hover span{color:#fff; background:rgba(255,255,255,.2); border-color:transparent}
+.pal-empty{text-align:center; color:var(--muted); padding:1rem}
+.pal-hint{text-align:center; font-size:.75rem; color:var(--muted); padding:.5rem; border-top:1px solid var(--line); margin:0}
+/* floating buttons */
+#searchBtn,#soundBtn{position:fixed; left:1.2rem; width:48px; height:48px; border-radius:50%; cursor:pointer; font-size:1.25rem; z-index:900; box-shadow:var(--shadow); transition:transform .2s; border:none}
+#searchBtn{bottom:8.2rem; background:linear-gradient(135deg,var(--brand),var(--brand2)); color:#fff}
+#soundBtn{bottom:4.7rem; background:var(--card); border:1px solid var(--line)}
+#searchBtn:hover,#soundBtn:hover{transform:scale(1.12)}
+@media print{ .palette-back,#searchBtn,#soundBtn{display:none!important} }
 </style>
 </head>
 <body>
@@ -831,6 +872,22 @@ footer{background:linear-gradient(180deg,transparent,color-mix(in srgb, var(--br
   </div>
 </section>
 
+<!-- ===== DASHBOARD ===== -->
+<section class="card" id="dash">
+  <h2 class="sec">📊 داشبورد فرمانده</h2>
+  <p class="sec-desc">اینجا ستاد فرماندهی عملیات قبولی‌ته! همه پیشرفتت یه جا 🎖️</p>
+  <div class="dash-grid">
+    <div class="dash-item"><b id="d-xp">۰</b><span>امتیاز XP</span><div class="dash-bar"><div class="dash-fill" id="d-xp-f"></div></div></div>
+    <div class="dash-item"><b id="d-fc">۰/۱۴</b><span>فلش‌کارت‌های بلد</span><div class="dash-bar"><div class="dash-fill" id="d-fc-f"></div></div></div>
+    <div class="dash-item"><b id="d-game">۰</b><span>رکورد مسابقه (از ۱۰)</span><div class="dash-bar"><div class="dash-fill" id="d-game-f"></div></div></div>
+    <div class="dash-item"><b id="d-pomo">۰</b><span>پومودوروهای کامل</span><div class="dash-bar"><div class="dash-fill" id="d-pomo-f"></div></div></div>
+    <div class="dash-item"><b id="d-check">۰٪</b><span>چک‌لیست</span><div class="dash-bar"><div class="dash-fill" id="d-check-f"></div></div></div>
+    <div class="dash-item"><b id="d-ch">۰/۳</b><span>فصل‌های خونده‌شده</span><div class="dash-bar"><div class="dash-fill" id="d-ch-f"></div></div></div>
+  </div>
+  <p class="fc-prog" id="d-msg" style="font-size:.95rem; font-weight:700"></p>
+  <div class="fc-ctrl"><button class="fc-btn bad" onclick="resetAll()">🗑 ریست همه پیشرفت</button></div>
+</section>
+
 <!-- ===== CHECKLIST ===== -->
 <section class="card" id="checklist">
   <h2 class="sec">✅ چک‌لیست شب امتحان</h2>
@@ -857,6 +914,11 @@ footer{background:linear-gradient(180deg,transparent,color-mix(in srgb, var(--br
   <span style="font-size:.78rem">نکته: این جزوه خلاصه شب امتحانی است و جای کتاب درسی را نمی‌گیرد.</span>
 </footer>
 
+<div class="palette-back" id="pal-back"><div class="palette">
+  <input id="pal-input" placeholder="🔍 دنبال چی می‌گردی؟ (مثل: کرامر، بیضی، تصویر...)" autocomplete="off">
+  <div id="pal-list"></div>
+  <p class="pal-hint">↑↓ برای حرکت • Enter برای رفتن • Esc برای بستن</p>
+</div></div>
 <canvas id="confetti"></canvas>
 <div id="toast"></div>
 <button id="topBtn" title="برگشت به بالا">⬆</button>
@@ -1343,6 +1405,232 @@ function checkProg(){
 }
 document.querySelectorAll('.check input').forEach(cb => cb.addEventListener('change', checkProg));
 checkProg();
+
+/* ================= v4 EXTREME JS ================= */
+const LT = ['🌱 تازه‌کار','🗡️ جنگجو','🛡️ شوالیه','👑 استاد','🐉 افسانه هندسه'];
+const lvlTitle = () => LT[Math.min(level() - 1, 4)];
+function renderXP(){
+  const t = ['🌱 تازه‌کار','🗡️ جنگجو','🛡️ شوالیه','👑 استاد','🐉 افسانه هندسه'][Math.min(level() - 1, 4)];
+  document.getElementById('level-badge').textContent = '🏆 سطح ' + faNum(level()) + ' • ' + t;
+  document.getElementById('xp-text').textContent = faNum(xp) + ' XP';
+  document.getElementById('xp-fill').style.width = (xp % 100) + '%';
+  const nx = document.getElementById('nav-xp');
+  if(nx) nx.textContent = '🏆' + faNum(level()) + ' • ' + faNum(xp);
+}
+renderXP();
+
+/* ---- sound engine ---- */
+let soundOn = true;
+try{ soundOn = localStorage.getItem('sound') !== 'off'; }catch(e){}
+function sfx(type){
+  if(!soundOn) return;
+  try{
+    const AC = window.AudioContext || window.webkitAudioContext;
+    const ctx = new AC();
+    const notes = {click:[620], good:[523, 659, 784], bad:[300, 210], pop:[880, 1174]};
+    (notes[type] || notes.click).forEach((f, i) => {
+      const o = ctx.createOscillator(), g = ctx.createGain();
+      o.connect(g); g.connect(ctx.destination); o.type = 'sine'; o.frequency.value = f;
+      const t0 = ctx.currentTime + i * .09;
+      o.start(t0); o.stop(t0 + .13);
+    });
+  }catch(e){}
+}
+const _gAnswer = gAnswer;
+gAnswer = function(i, btn){
+  const Q = GQ[gOrder[gIdx]];
+  sfx(i === Q.a ? 'good' : 'bad');
+  _gAnswer(i, btn);
+};
+document.addEventListener('click', e => {
+  if(e.target.closest('.tab-btn,.fc-btn,.solve-btn,.icon-btn,.nav-links a,#topBtn,.pal-item')) sfx('click');
+});
+
+/* ---- persistent pomodoros ---- */
+try{ pomoDone = parseInt(localStorage.getItem('pomoDone') || '0') || 0; }catch(e){}
+(function(){
+  const dots = document.getElementById('pomo-dots').children;
+  for(let i = 0; i < dots.length && i < pomoDone; i++) dots[i].classList.add('done');
+})();
+function pomoFinish(){
+  pomoStop(); beep();
+  if(pomoMode === 'focus'){
+    pomoDone++;
+    try{ localStorage.setItem('pomoDone', pomoDone); }catch(e){}
+    addXP(30, '🍅 یه پومودورو کامل'); boom();
+    const dots = document.getElementById('pomo-dots').children;
+    if(pomoDone <= 4) dots[pomoDone - 1].classList.add('done');
+    pomoSet(5, 'break');
+    setTimeout(() => toast('🍅 آفرین! حالا ۵ دقیقه استراحت کن'), 800);
+  } else {
+    pomoSet(25, 'focus');
+    setTimeout(() => toast('☕ استراحت تموم شد! برگرد سر درس 💪'), 800);
+  }
+}
+
+/* ---- chapters read ---- */
+let chDone = new Set();
+try{ chDone = new Set(JSON.parse(localStorage.getItem('chDone') || '[]')); }catch(e){}
+[['ch1','فصل ۱'],['ch2','فصل ۲'],['ch3','فصل ۳']].forEach(([id, name]) => {
+  const s = document.getElementById(id);
+  if(!s) return;
+  const btn = document.createElement('button');
+  btn.className = 'solve-btn ch-done-btn';
+  const paint = () => {
+    const done = chDone.has(id);
+    btn.textContent = done ? '✅ ' + name + ' رو خوندم!' : '📖 ' + name + ' رو خوندم؟ بزن!';
+    btn.classList.toggle('done', done);
+    s.classList.toggle('ch-done', done);
+  };
+  btn.onclick = () => {
+    if(chDone.has(id)){ chDone.delete(id); toast('باشه، پس هنوز بخونش 📖'); }
+    else { chDone.add(id); addXP(25, '📖 ' + name + ' تموم شد'); boom(); }
+    try{ localStorage.setItem('chDone', JSON.stringify([...chDone])); }catch(e){}
+    paint(); dash();
+  };
+  s.appendChild(btn); paint();
+});
+
+/* ---- dashboard ---- */
+function dash(){
+  const set = (id, txt, fillId, pct) => {
+    document.getElementById(id).textContent = txt;
+    document.getElementById(fillId).style.width = Math.min(100, Math.max(0, pct)) + '%';
+  };
+  set('d-xp', faNum(xp) + ' XP • ' + lvlTitle(), 'd-xp-f', xp % 100);
+  set('d-fc', faNum(fcKnown.size) + '/' + faNum(FC.length), 'd-fc-f', fcKnown.size / FC.length * 100);
+  set('d-game', faNum(gBest) + ' از ' + faNum(GQ.length), 'd-game-f', gBest / GQ.length * 100);
+  set('d-pomo', faNum(pomoDone), 'd-pomo-f', Math.min(pomoDone, 4) / 4 * 100);
+  const all = document.querySelectorAll('.check input').length;
+  const done = document.querySelectorAll('.check input:checked').length;
+  set('d-check', faNum(Math.round(done / all * 100)) + '٪', 'd-check-f', done / all * 100);
+  set('d-ch', faNum(chDone.size) + '/۳', 'd-ch-f', chDone.size / 3 * 100);
+  const total = (fcKnown.size / FC.length + gBest / GQ.length + Math.min(pomoDone, 4) / 4 + done / all + chDone.size / 3) / 5;
+  const msg = total >= .8 ? '🔥 آماده نبرد فردایی، فرمانده ' + lvlTitle() + '!' : total >= .5 ? '💪 داری خوب پیش میری، ادامه بده!' : total > 0 ? '🌱 شروع خوبی بوده، گاز بده!' : '👋 بزن بریم! از فلش‌کارت یا مسابقه شروع کن';
+  document.getElementById('d-msg').textContent = 'آمادگی کلی برای قبولی: ' + faNum(Math.round(total * 100)) + '٪ — ' + msg;
+}
+function resetAll(){
+  if(confirm('مطمئنی؟! همه XP، رکوردها، تیک‌ها و پیشرفتت پاک میشه! 🗑')){
+    try{ localStorage.clear(); }catch(e){}
+    location.reload();
+  }
+}
+dash(); setInterval(dash, 3000);
+
+/* ---- command palette ---- */
+const PAL = [
+  {t:'کرامر (حل دستگاه)', s:'فصل ۱', go:'#ch1'},
+  {t:'ساروس (دترمینان ۳×۳)', s:'فصل ۱', go:'#ch1'},
+  {t:'وارون ماتریس ۲×۲', s:'فصل ۱', go:'#ch1'},
+  {t:'ویژگی‌های دترمینان', s:'فصل ۱', go:'#ch1'},
+  {t:'دایره: مرکز و شعاع', s:'فصل ۲', go:'#ch2'},
+  {t:'خط و دایره (مماس)', s:'فصل ۲', go:'#ch2'},
+  {t:'بیضی: کانون و خروج از مرکز', s:'فصل ۲', go:'#ch2'},
+  {t:'سهمی: کانون و هادی', s:'فصل ۲', go:'#ch2'},
+  {t:'مربع کامل', s:'فصل ۲', go:'#ch2'},
+  {t:'تشخیص نوع مقطع مخروطی', s:'فصل ۲', go:'#ch2'},
+  {t:'ضرب داخلی و زاویه', s:'فصل ۳', go:'#ch3'},
+  {t:'تصویر قائم', s:'فصل ۳', go:'#ch3'},
+  {t:'ضرب خارجی و مساحت', s:'فصل ۳', go:'#ch3'},
+  {t:'معادله خط در فضا', s:'فصل ۳', go:'#ch3'},
+  {t:'معادله صفحه', s:'فصل ۳', go:'#ch3'},
+  {t:'فاصله نقطه از صفحه', s:'فصل ۳', go:'#ch3'},
+  {t:'⚡ فرمول‌نامه یک‌نگاه', s:'مرور', go:'#cheat'},
+  {t:'⛔ تله‌های مرگبار', s:'مرور', go:'#cheat'},
+  {t:'🧪 آزمایشگاه حل‌مسئله', s:'ابزار', go:'#lab'},
+  {t:'📊 شهربازی شکل‌ها', s:'ابزار', go:'#viz'},
+  {t:'🃏 فلش‌کارت', s:'ابزار', go:'#flash'},
+  {t:'🎮 مسابقه بزرگ', s:'ابزار', go:'#game'},
+  {t:'⏱ پومودورو', s:'ابزار', go:'#pomo'},
+  {t:'✍️ خودآزمایی', s:'تمرین', go:'#quiz'},
+  {t:'📊 داشبورد فرمانده', s:'برنامه', go:'#dash'},
+  {t:'✅ چک‌لیست شب امتحان', s:'برنامه', go:'#checklist'}
+];
+const palBack = document.getElementById('pal-back');
+const palInput = document.getElementById('pal-input');
+const palList = document.getElementById('pal-list');
+let palIdx = 0, palItems = PAL;
+function palOpen(){ palBack.classList.add('open'); palInput.value = ''; palFilter(''); setTimeout(() => palInput.focus(), 60); sfx('pop'); }
+function palClose(){ palBack.classList.remove('open'); }
+function palFilter(q){
+  q = q.trim();
+  palItems = PAL.filter(p => !q || p.t.includes(q) || p.s.includes(q));
+  palIdx = 0; palRender();
+}
+function palRender(){
+  palList.innerHTML = '';
+  if(!palItems.length){ palList.innerHTML = '<p class="pal-empty">چیزی پیدا نشد 😅 یه چیز دیگه سرچ کن!</p>'; return; }
+  palItems.slice(0, 9).forEach((p, i) => {
+    const d = document.createElement('div');
+    d.className = 'pal-item' + (i === palIdx ? ' sel' : '');
+    d.innerHTML = '<b>' + p.t + '</b><span>' + p.s + '</span>';
+    d.onclick = () => palGo(p);
+    palList.appendChild(d);
+  });
+}
+function palGo(p){
+  palClose();
+  const el = document.querySelector(p.go);
+  if(el){ el.scrollIntoView({behavior:'smooth', block:'start'}); el.classList.remove('flash'); void el.offsetWidth; el.classList.add('flash'); }
+}
+palInput.addEventListener('input', () => palFilter(palInput.value));
+palInput.addEventListener('keydown', e => {
+  const vis = Math.min(palItems.length, 9);
+  if(!vis) return;
+  if(e.key === 'ArrowDown'){ e.preventDefault(); palIdx = (palIdx + 1) % vis; palRender(); }
+  else if(e.key === 'ArrowUp'){ e.preventDefault(); palIdx = (palIdx - 1 + vis) % vis; palRender(); }
+  else if(e.key === 'Enter' && palItems[palIdx]) palGo(palItems[palIdx]);
+  else if(e.key === 'Escape') palClose();
+});
+palBack.addEventListener('click', e => { if(e.target === palBack) palClose(); });
+document.addEventListener('keydown', e => {
+  if((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k'){ e.preventDefault(); palBack.classList.contains('open') ? palClose() : palOpen(); }
+});
+
+/* ---- floating buttons ---- */
+document.body.insertAdjacentHTML('beforeend', '<button id="searchBtn" title="جستجوی سریع (Ctrl+K)">🔍</button><button id="soundBtn" title="صدا روشن/خاموش">🔊</button>');
+document.getElementById('searchBtn').onclick = palOpen;
+const sndBtn = document.getElementById('soundBtn');
+function sndRender(){ sndBtn.textContent = soundOn ? '🔊' : '🔇'; }
+sndBtn.onclick = () => { soundOn = !soundOn; try{ localStorage.setItem('sound', soundOn ? 'on' : 'off'); }catch(e){} sndRender(); if(soundOn) sfx('pop'); };
+sndRender();
+
+/* ---- certificate ---- */
+document.querySelector('#g-end').insertAdjacentHTML('beforeend', '<div class="fc-ctrl"><button class="fc-btn" onclick="makeCert()">🖼️ دانلود کارت افتخار</button></div>');
+function makeCert(){
+  const cv = document.createElement('canvas'); cv.width = 900; cv.height = 560;
+  const x = cv.getContext('2d');
+  const gr = x.createLinearGradient(0, 0, 900, 560);
+  gr.addColorStop(0, '#312e81'); gr.addColorStop(.5, '#6d28d9'); gr.addColorStop(1, '#a855f7');
+  x.fillStyle = gr; x.fillRect(0, 0, 900, 560);
+  x.fillStyle = '#fff';
+  for(let i = 0; i < 90; i++){ x.globalAlpha = .2 + Math.random() * .6; x.beginPath(); x.arc(Math.random() * 900, Math.random() * 560, 1 + Math.random() * 2.2, 0, 7); x.fill(); }
+  x.globalAlpha = 1;
+  x.strokeStyle = 'rgba(255,255,255,.75)'; x.lineWidth = 6; x.strokeRect(26, 26, 848, 508);
+  x.direction = 'rtl'; x.textAlign = 'center'; x.fillStyle = '#fff';
+  x.font = '900 52px Vazirmatn, Tahoma'; x.fillText('🎓 کارت افتخار هندسه 🎓', 450, 118);
+  x.font = '400 32px Vazirmatn, Tahoma'; x.fillText('قهرمان شب امتحان!', 450, 178);
+  x.font = '400 108px Lalezar, Vazirmatn, Tahoma'; x.fillStyle = '#fbbf24';
+  x.fillText(faNum(gScore) + ' از ' + faNum(GQ.length), 450, 318);
+  x.fillStyle = '#fff'; x.font = '400 30px Vazirmatn, Tahoma';
+  x.fillText('سطح ' + faNum(level()) + ' (' + lvlTitle() + ') • ' + faNum(xp) + ' ایکس‌پی', 450, 392);
+  x.font = '400 25px Vazirmatn, Tahoma'; x.fillStyle = 'rgba(255,255,255,.88)';
+  x.fillText(new Date().toLocaleDateString('fa-IR') + ' • جزوه شب امتحان هندسه دوازدهم', 450, 462);
+  const a = document.createElement('a');
+  a.download = 'hendese-cert.png'; a.href = cv.toDataURL('image/png'); a.click();
+  toast('🖼️ کارت افتخارت دانلود شد! قابش کن 😎');
+}
+
+/* ---- hero 3D tilt (desktop) ---- */
+if(window.matchMedia && matchMedia('(pointer:fine)').matches){
+  const hero = document.querySelector('.hero-card');
+  hero.addEventListener('mousemove', e => {
+    const r = hero.getBoundingClientRect();
+    const px = (e.clientX - r.left) / r.width - .5, py = (e.clientY - r.top) / r.height - .5;
+    hero.style.transform = 'perspective(1200px) rotateX(' + (-py * 4).toFixed(2) + 'deg) rotateY(' + (px * 4).toFixed(2) + 'deg)';
+  });
+  hero.addEventListener('mouseleave', () => { hero.style.transform = ''; });
+}
 </script>
 </body>
 </html>
